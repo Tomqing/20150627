@@ -12,9 +12,6 @@ var server = http.createServer(function(req,res){
         url = '';
     }
     urlParam = pro + url;
-    if( url == '/favicon.ico'){
-        res.end(''); return;
-    }
     if(fs.existsSync(urlParam)){
         fs.stat(urlParam,function(err,stats){
             if(stats.isFile()){
