@@ -11,7 +11,7 @@ var server = http.createServer(function(req,res){
     if(url == '/'){
         url = '';
     }
-    urlParam = pro + url;
+    urlParam = decodeURIComponent( pro + url );//转义
     if(fs.existsSync(urlParam)){//判断文件是否存在
         fs.stat(urlParam,function(err,stats){//如果存在，则判断文件状态是文件夹还是文件
             if(stats.isFile()){//如果是文件，则把文件输出出来
